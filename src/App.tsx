@@ -1,5 +1,8 @@
 import React from "react";
+import "react-dropdown/style.css";
 import "./styles/App.scss";
+
+import { RegionSelect } from "./components/RegionSelect";
 
 function App() {
   return (
@@ -13,13 +16,7 @@ function App() {
       <div className="maincontent">
         <nav className="navigation">
           <input placeholder="Search for a country..." />
-          <select className="regionselector" name="regions">
-            <option value="volvo">Africa</option>
-            <option value="saab">America</option>
-            <option value="fiat">Asia</option>
-            <option value="audi">Europe</option>
-            <option value="audi">Oceania</option>
-          </select>
+          <RegionSelect />
         </nav>
         <main>
           <article className="card">
