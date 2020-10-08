@@ -1,4 +1,5 @@
 @import "_variables";
+@import "_mixins";
 
 body {
   background-color: $verylightgrey;
@@ -15,7 +16,7 @@ body {
   justify-content: center;
   width: 100vw;
   background-color: white;
-  box-shadow: 0 0px 2px $darkgray;
+  @include border-box-shadow;
   > .positioner {
     display: flex;
     justify-content: space-between;
@@ -36,6 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 80vw;
+  font-size: 14px;
 }
 
 .navigation {
@@ -44,12 +46,24 @@ body {
   padding: 35px 0;
 }
 
-input {
+.searchbox {
+  display: flex;
+  align-items: center;
   height: 50px;
-  border: none;
-  box-shadow: 0px 0px 2px $darkgray;
-  border-radius: 5px;
+  width: 30%;
+  background-color: white;
+  @include border-box-shadow;
   padding: 0px 20px;
+  .fa-search {
+    margin: 0px 5%;
+    opacity: 0.5;
+  }
+  input {
+    height: 45px;
+    width: 80%;
+    border: none;
+    outline: none;
+  }
 }
 
 .dropdown {
@@ -62,13 +76,20 @@ input {
   }
   &-menu {
     padding: 15px;
-    box-shadow: 0px 0px 2px $darkgray;
-    border-radius: 5px;
+    @include border-box-shadow;
     color: $verydarkblue;
   }
   &-arrow {
     border-color: $darkgray transparent transparent;
     right: 20px;
     top: 20px;
+  }
+}
+
+.card {
+  width: 250px;
+  @include border-box-shadow;
+  .flag {
+    width: 250px;
   }
 }
