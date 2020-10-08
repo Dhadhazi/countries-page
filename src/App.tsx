@@ -3,14 +3,23 @@ import "./styles/App.scss";
 
 function App() {
   return (
-    <div>
-      <div id="topmenu">
-        <header>Where in the world?</header>
-        <div id="Dark Mode">Dark mode</div>
+    <div className="maindiv">
+      <div className="topmenu">
+        <div className="positioner">
+          <header>Where in the world?</header>
+          <div className="mode">Dark mode</div>
+        </div>
       </div>
-      <div id="maincontent">
-        <nav id="navigation">
+      <div className="maincontent">
+        <nav className="navigation">
           <input placeholder="Search for a country..." />
+          <select className="regionselector" name="regions">
+            <option value="volvo">Africa</option>
+            <option value="saab">America</option>
+            <option value="fiat">Asia</option>
+            <option value="audi">Europe</option>
+            <option value="audi">Oceania</option>
+          </select>
         </nav>
         <main>
           <article className="card">
