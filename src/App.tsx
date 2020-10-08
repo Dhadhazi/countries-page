@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { Route, Switch } from "react-router-dom";
+
 import "react-dropdown/style.css";
 import "./styles/App.scss";
-
-import { RegionSelect } from "./components/RegionSelect";
-import { Search } from "./components/Search";
-import { FlagCard } from "./components/FlagCard";
+import { FlagList } from "./components/FlagList";
+import { Detail } from "./components/Detail";
 
 function App() {
+  const [darkmode, setDarkmode] = useState<boolean>(true);
+
   return (
     <div className="maindiv">
       <div className="topmenu">
@@ -18,13 +20,10 @@ function App() {
         </div>
       </div>
       <div className="maincontent">
-        <nav className="navigation">
-          <Search />
-          <RegionSelect />
-        </nav>
-        <main>
-          <FlagCard />
-        </main>
+        <Switch>
+          <Route path="/:country" component={Detail} />
+          <Route path="/" component={FlagList} />
+        </Switch>
       </div>
     </div>
   );

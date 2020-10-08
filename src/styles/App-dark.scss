@@ -4,13 +4,15 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: $light-bg;
+  background-color: $dark-bg;
+  color: $dark-text;
 }
 
 a {
   text-decoration: none;
-  color: $light-text;
+  color: $dark-text;
 }
+
 .maindiv {
   display: flex;
   flex-direction: column;
@@ -20,10 +22,8 @@ a {
   display: flex;
   justify-content: center;
   width: 100vw;
-  background-color: $light-elem;
-  &.darkmode {
-    background-color: $dark-elem;
-  }
+  background-color: $dark-elem;
+
   @include border-box-shadow;
   > .positioner {
     display: flex;
@@ -46,7 +46,7 @@ a {
   flex-direction: column;
   width: 90vw;
   font-size: 14px;
-  color: $light-text;
+  color: $dark-text;
 }
 
 .navigation {
@@ -63,7 +63,7 @@ a {
   align-items: center;
   height: 50px;
   width: 30%;
-  background-color: $light-elem;
+  background-color: $dark-elem;
   @include border-box-shadow;
   padding: 0px 20px;
   .fa-search {
@@ -71,7 +71,8 @@ a {
     opacity: 0.5;
   }
   input {
-    background-color: $light-elem;
+    background-color: $dark-elem;
+    color: $dark-text;
     height: 45px;
     width: 80%;
     border: none;
@@ -93,27 +94,27 @@ a {
     font-weight: 600;
   }
   &-menu {
-    background-color: $light-elem;
+    background-color: $dark-elem;
     padding: 15px;
     @include border-box-shadow;
-    color: $light-text;
+    color: $dark-text;
   }
   &-arrow {
-    border-color: $light-bg transparent transparent;
+    border-color: $dark-bg transparent transparent;
     right: 20px;
     top: 20px;
   }
   &-list {
-    background-color: $light-elem;
-    color: $light-text;
+    background-color: $dark-elem;
+    color: $dark-text;
     border: none;
     :hover {
-      color: $light-text;
-      background-color: darken($light-elem, 20);
+      color: $dark-text;
+      background-color: lighten($dark-elem, 20);
     }
   }
   &-option {
-    color: $light-text;
+    color: $dark-text;
   }
 }
 
@@ -131,7 +132,7 @@ a {
   width: 250px;
   height: 340px;
   margin: 25px 0px;
-  background-color: $light-elem;
+  background-color: $dark-elem;
   @include border-box-shadow;
   .flag {
     width: 250px;
@@ -157,7 +158,7 @@ a {
       @include border-box-shadow;
       width: 140px;
       height: 40px;
-      @include button-base("");
+      @include button-base("dark");
     }
   }
   main {
@@ -185,7 +186,7 @@ a {
       }
       button {
         @include border-box-shadow;
-        @include button-base("");
+        @include button-base("dark");
         margin: 5px;
       }
     }
