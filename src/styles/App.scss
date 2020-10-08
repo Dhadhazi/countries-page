@@ -1,0 +1,21 @@
+@import "_variables";
+
+body {
+  background-color: $verylightgrey;
+  margin: 0;
+  padding: 0;
+}
+#topmenu {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  background-color: white;
+  box-shadow: 0 0px 2px $darkgray;
+}
+
+#maincontent {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+  margin-top: 80px;
+}

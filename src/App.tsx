@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles/App.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div id="topmenu">
+        <header>Where in the world?</header>
+        <div id="Dark Mode">Dark mode</div>
+      </div>
+      <div id="maincontent">
+        <nav id="navigation">
+          <input placeholder="Search for a country..." />
+        </nav>
+        <main>
+          <article className="card">
+            <section className="flag">
+              <img src="https://restcountries.eu/data/afg.svg" />
+            </section>
+            <section className="description">
+              Population: 84,5454,545 <br />
+              Region: Asia <br />
+              Capital: Kabul
+            </section>
+          </article>
+        </main>
+      </div>
     </div>
   );
 }
