@@ -89,13 +89,13 @@ export const Detail = () => {
               </section>
               <section>
                 <b>Border Countries:</b>
-                {data.borders.map((country: string) => 
+                {data.borders.length>0 ? data.borders.map((country: string) => 
                   {  const name = getCountryName(country)
                     return <Link to={`/${name}`} key={name}>
                     <button>{name}</button>
                   </Link>
                   }
-                )}
+                ): " None"}
               </section>
             </article>
           </main>
