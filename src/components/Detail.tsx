@@ -91,7 +91,7 @@ export const Detail = () => {
                 <b>Border Countries:</b>
                 {data.borders.length>0 ? data.borders.map((country: string) => 
                   {  const name = getCountryName(country)
-                    return <Link to={`/${name}`} key={name}>
+                    return <Link to={`/${country}`} key={name}>
                     <button>{name}</button>
                   </Link>
                   }
