@@ -15,13 +15,13 @@ export const FlagCard = ({ data }: Props) => {
   return (
     <article className="card">
       <LazyLoadImage src={data.flag} className="flag" alt={`Flag of ${data.name}`} />
-      <section className="countryname">{data.name}</section>
-      <section className="description">
+      <h2 className="countryname">{data.name}</h2>
+      <h3 className="description">
         <b>Population:</b> {numberWithCommas(data.population)}
         <br />
         <b>Region:</b> {data.region} <br />
         <b>Capital:</b> {data.capital}
-      </section>
+      </h3>
     </article>
   );
 };
