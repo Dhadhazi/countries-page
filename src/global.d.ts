@@ -5,4 +5,5 @@ type FlagData = {
   region: string;
   capital: string;
   region: string;
+  alpha3Code: string;
 };

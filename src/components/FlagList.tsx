@@ -14,7 +14,7 @@ export const FlagList = () => {
   useEffect(() => {
     axios
       .get(
-        "https://restcountries.eu/rest/v2/all?fields=name;capital;region;population;flag;region"
+        "https://restcountries.eu/rest/v2/all?fields=name;capital;region;population;flag;region;alpha3Code"
       )
       .then((res) => setFlagList(res.data));
   }, []);
@@ -30,7 +30,7 @@ export const FlagList = () => {
               .filter((data)=>region ? data.region===region : true)
               .filter((data)=>data.name.toLowerCase().includes(search.toLowerCase()))
               .map((data: FlagData, i: number) => (
-              <Link to={`/${data.name}`} key={`flag-${i}`}>
+              <Link to={`/${data.alpha3Code}`} key={`flag-${i}`}>
                 <FlagCard data={data} />
               </Link>
             ))
