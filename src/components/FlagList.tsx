@@ -8,6 +8,7 @@ import { FlagCard } from "./FlagCard";
 
 export const FlagList = () => {
   const [flagList, setFlagList] = useState<[FlagData]>();
+  const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
     axios
@@ -19,12 +20,12 @@ export const FlagList = () => {
   return (
     <div>
       <nav className="navigation">
-        <Search />
+        <Search setSearch={setSearch} search={search}/>
         <RegionSelect />
       </nav>
       <main className="flaglist">
         {flagList
-          ? flagList.map((data: FlagData, i: number) => (
+          ? flagList.filter((data)=>data.name.toLowerCase().includes(search.toLowerCase())).map((data: FlagData, i: number) => (
               <Link to={`/${data.name}`} key={`flag-${i}`}>
                 <FlagCard data={data} />
               </Link>

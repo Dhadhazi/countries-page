@@ -31,7 +31,7 @@ function App() {
         <div className="positioner">
           <header>Where in the world?</header>
           <div className="mode" onClick={()=>setDarkmode((prevState)=>!prevState)}>
-            <i className="far fa-moon"></i> Dark mode
+            <i className={darkmode ? "fas fa-moon":"far fa-moon"}></i> Dark mode
           </div>
         </div>
       </div>
