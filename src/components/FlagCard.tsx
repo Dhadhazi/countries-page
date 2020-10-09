@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 type Props = {
   data: FlagData;
@@ -13,7 +14,7 @@ export const FlagCard = ({ data }: Props) => {
 
   return (
     <article className="card">
-      <img src={data.flag} className="flag" alt={`Flag of ${data.name}`} />
+      <LazyLoadImage src={data.flag} className="flag" alt={`Flag of ${data.name}`} />
       <section className="countryname">{data.name}</section>
       <section className="description">
         <b>Population:</b> {numberWithCommas(data.population)}

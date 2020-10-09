@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import {Countrylist} from "../CountryList";
 import axios from "axios";
 
 type Currencies = {
@@ -26,6 +27,11 @@ export const Detail = () => {
   const [data, setData] = useState<CountryData>();
   const [loading, setLoading] = useState<boolean>(true);
   const { country } = useParams();
+
+  function getCountryName(code:string){
+    const name = Countrylist.find(c => c.code=== code);
+    return name?.name;
+  }
 
   useEffect(() => {
     try {
@@ -83,11 +89,13 @@ export const Detail = () => {
               </section>
               <section>
                 <b>Border Countries:</b>
-                {data.borders.map((country: string) => (
-                  <Link to={`/${country}`} key={country}>
-                    <button>{country}</button>
+                {data.borders.map((country: string) => 
+                  {  const name = getCountryName(country)
+                    return <Link to={`/${name}`} key={name}>
+                    <button>{name}</button>
                   </Link>
-                ))}
+                  }
+                )}
               </section>
             </article>
           </main>
