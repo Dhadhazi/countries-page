@@ -36,9 +36,9 @@ export const Detail = () => {
   useEffect(() => {
     try {
       axios
-        .get(`https://restcountries.eu/rest/v2/name/${country}`)
+        .get(`https://restcountries.eu/rest/v2/alpha/${country}`)
         .then((res) => {
-          setData(res.data[0]);
+          setData(res.data);
           setLoading(false);
         });
     } catch (error) {
