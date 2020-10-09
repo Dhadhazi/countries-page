@@ -9,11 +9,12 @@ import { FlagCard } from "./FlagCard";
 export const FlagList = () => {
   const [flagList, setFlagList] = useState<[FlagData]>();
   const [search, setSearch] = useState<string>("");
+  const [region, setRegion] = useState<string>();
 
   useEffect(() => {
     axios
       .get(
-        "https://restcountries.eu/rest/v2/all?fields=name;capital;region;population;flag"
+        "https://restcountries.eu/rest/v2/all?fields=name;capital;region;population;flag;region"
       )
       .then((res) => setFlagList(res.data));
   }, []);
@@ -21,11 +22,14 @@ export const FlagList = () => {
     <div>
       <nav className="navigation">
         <Search setSearch={setSearch} search={search}/>
-        <RegionSelect />
+        <RegionSelect setRegion={setRegion}/>
       </nav>
       <main className="flaglist">
         {flagList
-          ? flagList.filter((data)=>data.name.toLowerCase().includes(search.toLowerCase())).map((data: FlagData, i: number) => (
+          ? flagList
+              .filter((data)=>region ? data.region===region : true)
+              .filter((data)=>data.name.toLowerCase().includes(search.toLowerCase()))
+              .map((data: FlagData, i: number) => (
               <Link to={`/${data.name}`} key={`flag-${i}`}>
                 <FlagCard data={data} />
               </Link>

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropdown from "react-dropdown";
 
-export const RegionSelect = () => {
-  const [region, setRegion] = useState<string>();
+type Props = {
+  setRegion:Function
+}
+
+export const RegionSelect = ({setRegion}:Props) => {
   const options = [
     { value: "Africa", label: "Africa", className: "dropdown-option" },
     { value: "Americas", label: "America", className: "dropdown-option" },

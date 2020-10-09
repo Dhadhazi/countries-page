@@ -4,4 +4,5 @@ type FlagData = {
   population: string;
   region: string;
   capital: string;
+  region: string;
 };
